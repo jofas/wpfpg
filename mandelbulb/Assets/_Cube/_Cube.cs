@@ -83,7 +83,7 @@ public class _Cube : MonoBehaviour
     mesh.Clear();
     mesh.vertices  = vertices;
     mesh.triangles = triangles;
-
+    mesh.RecalculateNormals();
     mesh_f.sharedMesh = mesh;
   }
 }
