@@ -146,9 +146,10 @@ Shader "___Shader"
               float4 color = _ColorCube;
 
               if (dist < _Epsilon) {
-                //float3 N = normEstimate( worldPos, _Mu );
-                return (1.0, 0.0, 0.0, 1.0);// 1.0);//.rgb = (255, 0, 0);//N * 0.5 + 0.5;
-                //color.rgb = Phong( unity_LightPosition[0].xyz, viewDirection, _WorldSpaceCameraPos, N );
+                float3 N = normEstimate( worldPos, _Mu );
+                color = float4((N * 0.5 + 0.5), 1.0);
+                //color = float4(1.0, 0.0, 0.0, 1.0);// 1.0);//.rgb = (255, 0, 0);//N * 0.5 + 0.5;
+                //color = float4(Phong( unity_LightPosition[0].xyz, viewDirection, _WorldSpaceCameraPos, N ), 1.0);
                 //color.a = 1;  // (make this fragment opaque
               }
               return color;

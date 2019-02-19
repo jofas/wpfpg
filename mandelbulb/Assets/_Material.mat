@@ -57,7 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BlendOp: 0
-    - _BoundingSphereRadius: 3
+    - _BoundingSphereRadius: 8
     - _BoxIters: 16
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
@@ -73,13 +73,13 @@ Material:
     - _DistortionStrengthScaled: 0
     - _DstBlend: 0
     - _EmissionEnabled: 0
-    - _Epsilon: 0.1
+    - _Epsilon: 0.001
     - _FlipbookMode: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _LightingEnabled: 0
-    - _MaxIter: 32
+    - _MaxIter: 13
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -102,8 +102,8 @@ Material:
     - _Center: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorCube: {r: 0.5566038, g: 0.29930583, b: 0.29930583, a: 1}
+    - _ColorCube: {r: 0.02864017, g: 0.025631895, b: 0.1509434, a: 1}
     - _ColorSphere: {r: 0.9245283, g: 0.08721964, b: 0.19221541, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Mu: {r: -0.2, g: 1, b: 0, a: 0}
+    - _Mu: {r: -0.86, g: 0.4, b: 0, a: 0}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
