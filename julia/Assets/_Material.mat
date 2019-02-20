@@ -79,9 +79,10 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _LightingEnabled: 0
-    - _MaxIter: 13
+    - _MaxIter: 15
     - _Metallic: 0
     - _Mode: 0
+    - _NormalIter: 12
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Radius: 0.2
@@ -102,8 +103,8 @@ Material:
     - _Center: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorCube: {r: 0.02864017, g: 0.025631895, b: 0.1509434, a: 1}
+    - _ColorCube: {r: 0, g: 0, b: 0, a: 1}
     - _ColorSphere: {r: 0.9245283, g: 0.08721964, b: 0.19221541, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Mu: {r: -0.86, g: 0.4, b: 0, a: 0}
+    - _Mu: {r: -0.6731229, g: 0.37363377, b: 0.17459193, a: 0.32246968}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}

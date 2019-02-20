@@ -10,7 +10,8 @@ Shader "___Shader"
         _Threshold("Escape Threshold", float) = 1.0
         _Mu ("Prison Element", vector) = (1.0, 0.0, 0.0, 0.0)
         _Epsilon ("Epsilon", float) = 0.1
-        _MaxIter ("Max Iter (julia)", int) = 32
+        _MaxIter ("Max Iter", int) = 12
+        _NormalIter ("Normal Iter", int) = 12
     }
     SubShader
     {
@@ -43,6 +44,7 @@ Shader "___Shader"
             fixed4 _Mu;
             float _Epsilon;
             int _MaxIter;
+            int _NormalIter;
 
             float4 quatMult( float4 q1, float4 q2 ) {
               float4 r;
@@ -105,7 +107,7 @@ Shader "___Shader"
               float4 gy2 = qP + float4( 0, DEL, 0, 0 );
               float4 gz1 = qP - float4( 0, 0, DEL, 0 );
               float4 gz2 = qP + float4( 0, 0, DEL, 0 );
-              for( int i=0; i< _MaxIter; i++ ) {
+              for( int i=0; i< _NormalIter; i++ ) {
                 gx1 = quatSq( gx1 ) + c;
                 gx2 = quatSq( gx2 ) + c;
                 gy1 = quatSq( gy1 ) + c;
@@ -118,20 +120,6 @@ Shader "___Shader"
               gradZ = length(gz2) - length(gz1);
               N = normalize(float3( gradX, gradY, gradZ ));
               return N;
-            }
-
-            float3 Phong( float3 light, float3 eye, float3 pt, float3 N ) {
-              float3 diffuse = float3( 1.00, 0.45, 0.25 ); // base color of shading
-              const int specularExponent = 10;             // shininess of shading
-              const float specularity = 0.45;              // amplitude of specular highlight
-              float3 L     = normalize( light - pt );  // find the vector to the light
-              float3 E     = normalize( eye   - pt );  // find the vector to the eye
-              float  NdotL = dot( N, L );              // find the cosine of the angle between light and normal
-              float3 R     = L - 2 * NdotL * N;        // find the reflected vector
-              diffuse += abs( N )*0.3;  // add some of the normal to the
-              // color to make it more interesting
-              // compute the illumination using the Phong equation
-              return diffuse * max( NdotL, 0 ) + specularity*pow( max(dot(E,R),0), specularExponent );
             }
 
             fixed4 frag(v2f i) : SV_Target {
@@ -148,9 +136,6 @@ Shader "___Shader"
               if (dist < _Epsilon) {
                 float3 N = normEstimate( worldPos, _Mu );
                 color = float4((N * 0.5 + 0.5), 1.0);
-                //color = float4(1.0, 0.0, 0.0, 1.0);// 1.0);//.rgb = (255, 0, 0);//N * 0.5 + 0.5;
-                //color = float4(Phong( unity_LightPosition[0].xyz, viewDirection, _WorldSpaceCameraPos, N ), 1.0);
-                //color.a = 1;  // (make this fragment opaque
               }
               return color;
             }
