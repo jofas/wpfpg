@@ -21,8 +21,8 @@ public class Controller : MonoBehaviour
 
   private bool zoom_steps_dir;
 
-  private const float field_of_view_min = 30f;
-  private const float field_of_view_max = 72f;
+  private const float field_of_view_min = 40f;
+  private const float field_of_view_max = 60f;
 
   // compute new camera_dir after {camera_dir_change} many
   // steps
