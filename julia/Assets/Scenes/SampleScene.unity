@@ -145,12 +145,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r_min: 0.2
   r_max: 1
-  julia_transform: 0.01
-  camera_transform: 0.1
-  zoom_transform: 0.075
+  julia_transform: 0.002
+  camera_transform: 0.01
+  zoom_transform: 0.00075
   camera_zoom_change: 100
   camera_dir_change: 400
-  frame_rate: 10
+  frame_rate: 30
 --- !u!23 &420408586
 MeshRenderer:
   m_ObjectHideFlags: 0

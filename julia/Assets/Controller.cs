@@ -21,7 +21,7 @@ public class Controller : MonoBehaviour
 
   private bool zoom_steps_dir;
 
-  private const float field_of_view_min = 10f;
+  private const float field_of_view_min = 30f;
   private const float field_of_view_max = 72f;
 
   // compute new camera_dir after {camera_dir_change} many
@@ -89,6 +89,8 @@ public class Controller : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (Input.GetKey("escape")){Application.Quit();}
+
     // camera zoom
     if (zoom_steps_dir) {
       change_field_of_view(
